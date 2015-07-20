@@ -19,7 +19,7 @@ describe('Conway', function() {
                   [0, 0, 0, 0]];
 
       expect(Conway.Grid.extractNeighborhood(grid, 0, 0)).toEqual([[0, 0, 0],
-                                                                   [0, 1, 0],
+                                                                   [0, 0, 0],
                                                                    [0, 0, 0]]);
       expect(Conway.Grid.extractNeighborhood(grid, 1, 1)).toEqual([[1, 0, 0],
                                                                    [0, 0, 0],

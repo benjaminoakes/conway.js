@@ -41,7 +41,12 @@ Conway.Grid = (function () {
 
         if (row) {
           cell = row[x + displaceX];
-          return cell ? cell : 0;
+
+          if (0 === displaceX && 0 === displaceY) {
+            return 0;
+          } else {
+            return cell ? cell : 0;
+          }
         } else {
           return 0;
         }
