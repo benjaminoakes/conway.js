@@ -1,5 +1,5 @@
-var U = require('underscore'),
-  Cell = require('./cell');
+var U = require("underscore"),
+  Cell = require("./cell");
 
 module.exports = (function () {
   var Grid = {};
@@ -66,11 +66,11 @@ module.exports = (function () {
     
     rows = grid.map(function (row) {
       return row.
-        map(function (cell) { return 1 === cell ? '•' : ' '; }).
-        join('');
+        map(function (cell) { return 1 === cell ? "•" : " "; }).
+        join("");
     });
 
-    return rows.join('\n');
+    return rows.join("\n");
   }
 
   Grid.step = step;

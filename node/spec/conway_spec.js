@@ -1,10 +1,10 @@
-var U = require('underscore');
+var U = require("underscore");
 
-describe('Conway', function() {
-  var Conway = require('../lib/conway');
+describe("Conway", function() {
+  var Conway = require("../lib/conway");
 
-  describe('Cell.next', function () {
-    describe('given a dead cell', function () {
+  describe("Cell.next", function () {
+    describe("given a dead cell", function () {
       it('follows the "B3/S23" rules', function () {
         var results = U.range(0, 9).map(function (count) {
           return Conway.Cell.next(0, count);
@@ -14,7 +14,7 @@ describe('Conway', function() {
       });
     });
 
-    describe('given an alive cell', function () {
+    describe("given an alive cell", function () {
       it('follows the "B3/S23" rules', function () {
         var results = U.range(0, 9).map(function (count) {
           return Conway.Cell.next(1, count);
@@ -25,8 +25,8 @@ describe('Conway', function() {
     });
   });
 
-  describe('Grid.extractNeighborhood', function () {
-    it('extracts the neighborhood around a set of coordinates, treating edges and the center like dead cells', function () {
+  describe("Grid.extractNeighborhood", function () {
+    it("extracts the neighborhood around a set of coordinates, treating edges and the center like dead cells", function () {
       var grid = [[1, 0, 0, 0],
                   [0, 0, 0, 0],
                   [0, 0, 1, 0],
@@ -47,9 +47,9 @@ describe('Conway', function() {
     });
   });
 
-  describe('Grid.countNeighbors', function () {
-    describe('given an empty neighborhood', function () {
-      it('returns 0', function () {
+  describe("Grid.countNeighbors", function () {
+    describe("given an empty neighborhood", function () {
+      it("returns 0", function () {
         var grid = [[0, 0, 0],
                     [0, 0, 0],
                     [0, 0, 0]];
@@ -58,8 +58,8 @@ describe('Conway', function() {
       });
     });
 
-    describe('given a full neighborhood', function () {
-      it('returns 8', function () {
+    describe("given a full neighborhood", function () {
+      it("returns 8", function () {
         var grid = [[1, 1, 1],
                     [1, 1, 1],
                     [1, 1, 1]];
@@ -69,8 +69,8 @@ describe('Conway', function() {
     });
   });
 
-  describe('Grid.next', function () {
-    it('returns the next state', function () {
+  describe("Grid.next", function () {
+    it("returns the next state", function () {
       var grid, next;
       
       grid = [[1, 0, 0, 0],
@@ -87,17 +87,17 @@ describe('Conway', function() {
     });
   });
 
-  describe('Grid.generate', function () {
-    it('returns a randomly generated grid of the requested size', function () {
+  describe("Grid.generate", function () {
+    it("returns a randomly generated grid of the requested size", function () {
       var grid = Conway.Grid.generate(8, 11);
 
       expect(grid.length).toEqual(11);
-      expect(U.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
+      expect(U.pluck(grid, "length")).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
     });
   });
 
-  describe('Grid.displayable', function () {
-    it('returns sparse display of the grid', function () {
+  describe("Grid.displayable", function () {
+    it("returns sparse display of the grid", function () {
       var grid;
       
       grid = [[1, 0, 0, 0],
@@ -105,16 +105,16 @@ describe('Conway', function() {
               [1, 0, 1, 0],
               [0, 0, 0, 0]];
 
-      expect(Conway.Grid.displayable(grid)).toEqual('•   \n    \n• • \n    ');
+      expect(Conway.Grid.displayable(grid)).toEqual("•   \n    \n• • \n    ");
     });
   });
 
-  describe('Grid.generate', function () {
-    it('returns a randomly generated grid of the requested size', function () {
+  describe("Grid.generate", function () {
+    it("returns a randomly generated grid of the requested size", function () {
       var grid = Conway.Grid.generate(8, 11);
 
       expect(grid.length).toEqual(11);
-      expect(U.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
+      expect(U.pluck(grid, "length")).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
     });
   });
 });

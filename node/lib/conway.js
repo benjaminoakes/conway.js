@@ -1,6 +1,6 @@
-var Cell = require('./conway/cell'),
-  Grid = require('./conway/grid'),
-  CLI = require('./conway/cli');
+var Cell = require("./conway/cell"),
+  Grid = require("./conway/grid"),
+  CLI = require("./conway/cli");
 
 var Conway = {
   Cell: Cell,

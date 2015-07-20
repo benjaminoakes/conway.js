@@ -1,16 +1,16 @@
-var Grid = require('./grid');
+var Grid = require("./grid");
 
 module.exports = (function () {
   var CLI = {};
 
   function show_usage() {
     var text = [
-      'Usage: conway width height generations',
-      '',
+      "Usage: conway width height generations",
+      "",
       "Runs a simulation of Conway's Game of Life",
-      '',
-      'More information: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'
-    ].join('\n');
+      "",
+      "More information: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+    ].join("\n");
 
     console.log(text);
   }
