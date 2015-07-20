@@ -90,7 +90,67 @@ Conway.Grid = (function () {
     });
   }
 
+  Grid.displayable = displayable;
+  function displayable(grid) {
+    var rows;
+    
+    rows = grid.map(function (row) {
+      return row.
+        map(function (cell) { return 1 === cell ? '•' : ' '; }).
+        join('');
+    });
+
+    return rows.join('\n');
+  }
+
   return Grid;
+}());
+
+Conway.CLI = (function () {
+  var CLI = {};
+
+  function step(grid, generation, callback) {
+    var newGrid;
+    
+    if (0 === generation) {
+      return;
+    } else {
+      newGrid = Conway.Grid.next(grid);
+      callback(newGrid);
+      step(newGrid, generation - 1, callback);
+    }
+  }
+
+  function show_usage() {
+    console.log('Usage: conway width height generations');
+  }
+
+  function run(width, height, generations) {
+    var initialGrid;
+
+    initialGrid = Conway.Grid.generate(width, height);
+
+    step(initialGrid, generations, function (grid) {
+      console.log(Conway.Grid.displayable(grid));
+    });
+  }
+
+  CLI.main = main;
+  function main(argv) {
+    var parsed;
+
+    parsed = argv.slice(2, 5).map(function (s) {
+      return parseInt(s, 10);
+    });
+
+    if (3 === parsed.length) {
+      run(parsed[0], parsed[1], parsed[2]);
+    } else {
+      show_usage();
+    }
+  }
+
+  return CLI;
 }());
 
 module.exports = Conway;

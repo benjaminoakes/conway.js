@@ -95,4 +95,26 @@ describe('Conway', function() {
       expect(U.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
     });
   });
+
+  describe('Grid.displayable', function () {
+    it('returns sparse display of the grid', function () {
+      var grid;
+      
+      grid = [[1, 0, 0, 0],
+              [0, 0, 0, 0],
+              [1, 0, 1, 0],
+              [0, 0, 0, 0]];
+
+      expect(Conway.Grid.displayable(grid)).toEqual('•   \n    \n• • \n    ');
+    });
+  });
+
+  describe('Grid.generate', function () {
+    it('returns a randomly generated grid of the requested size', function () {
+      var grid = Conway.Grid.generate(8, 11);
+
+      expect(grid.length).toEqual(11);
+      expect(U.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
+    });
+  });
 });
