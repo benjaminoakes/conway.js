@@ -18,8 +18,10 @@ Conway.Cell = (function () {
   //     as if by reproduction.
   //
   Cell.next = next;
-  function next(neighborCount) {
-    if (neighborCount == 2 || neighborCount == 3) {
+  function next(cell, neighborCount) {
+    if (1 === cell && 2 === neighborCount) {
+      return 1;
+    } else if (3 === neighborCount) {
       return 1;
     } else {
       return 0;

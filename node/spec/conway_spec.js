@@ -4,10 +4,24 @@ describe('Conway', function() {
   var Conway = require('../lib/conway');
 
   describe('Cell.next', function () {
-    it('follows the "B3/S23" rules', function () {
-      var results = _.range(0, 9).map(Conway.Cell.next);
+    describe('given a dead cell', function () {
+      it('follows the "B3/S23" rules', function () {
+        var results = _.range(0, 9).map(function (count) {
+          return Conway.Cell.next(0, count);
+        });
 
-      expect(results).toEqual([0, 0, 1, 1, 0, 0, 0, 0, 0]);
+        expect(results).toEqual([0, 0, 0, 1, 0, 0, 0, 0, 0]);
+      });
+    });
+
+    describe('given an alive cell', function () {
+      it('follows the "B3/S23" rules', function () {
+        var results = _.range(0, 9).map(function (count) {
+          return Conway.Cell.next(1, count);
+        });
+
+        expect(results).toEqual([0, 0, 1, 1, 0, 0, 0, 0, 0]);
+      });
     });
   });
 
