@@ -31,8 +31,8 @@ Conway.Cell = (function () {
 Conway.Grid = (function () {
   var Grid = {};
 
-  Grid.neighborhood = neighborhood;
-  function neighborhood(grid, x, y) {
+  Grid.extractNeighborhood = extractNeighborhood;
+  function extractNeighborhood(grid, x, y) {
     return [-1, 0, +1].map(function (displaceY) {
       return [-1, 0, +1].map(function (displaceX) {
         var row, cell;
