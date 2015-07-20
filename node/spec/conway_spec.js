@@ -10,4 +10,26 @@ describe('Conway', function() {
       expect(results).toEqual([0, 0, 1, 1, 0, 0, 0, 0, 0]);
     });
   });
+
+  describe('Grid.neighborhood', function () {
+    it('extracts the neighborhood around a set of coordinates, treating edges like dead cells', function () {
+      var grid = [[1, 0, 0, 0],
+                  [0, 0, 0, 0],
+                  [0, 0, 1, 0],
+                  [0, 0, 0, 0]];
+
+      expect(Conway.Grid.neighborhood(grid, 0, 0)).toEqual([[0, 0, 0],
+                                                            [0, 1, 0],
+                                                            [0, 0, 0]]);
+      expect(Conway.Grid.neighborhood(grid, 1, 1)).toEqual([[1, 0, 0],
+                                                            [0, 0, 0],
+                                                            [0, 0, 1]]);
+      expect(Conway.Grid.neighborhood(grid, 0, 3)).toEqual([[0, 0, 0],
+                                                            [0, 0, 0],
+                                                            [0, 0, 0]]);
+      expect(Conway.Grid.neighborhood(grid, 3, 3)).toEqual([[1, 0, 0],
+                                                            [0, 0, 0],
+                                                            [0, 0, 0]]);
+    });
+  });
 });

@@ -27,4 +27,27 @@ Conway.Cell = (function () {
   return Cell;
 }());
 
+Conway.Grid = (function () {
+  var Grid = {};
+
+  Grid.neighborhood = function neighborhood(grid, x, y) {
+    return [-1, 0, +1].map(function (displaceY) {
+      return [-1, 0, +1].map(function (displaceX) {
+        var row, cell;
+        
+        row = grid[y + displaceY];
+
+        if (row) {
+          cell = row[x + displaceX];
+          return cell ? cell : 0;
+        } else {
+          return 0;
+        }
+      });
+    });
+  };
+
+  return Grid;
+}());
+
 module.exports = Conway;
