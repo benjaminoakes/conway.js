@@ -103,23 +103,24 @@ Conway.Grid = (function () {
     return rows.join('\n');
   }
 
-  return Grid;
-}());
-
-Conway.CLI = (function () {
-  var CLI = {};
-
+  Grid.step = step;
   function step(grid, generation, callback) {
     var newGrid;
     
     if (0 === generation) {
       return;
     } else {
-      newGrid = Conway.Grid.next(grid);
+      newGrid = next(grid);
       callback(newGrid);
       step(newGrid, generation - 1, callback);
     }
   }
+
+  return Grid;
+}());
+
+Conway.CLI = (function () {
+  var CLI = {};
 
   function show_usage() {
     var text = [
@@ -138,7 +139,7 @@ Conway.CLI = (function () {
 
     initialGrid = Conway.Grid.generate(width, height);
 
-    step(initialGrid, generations, function (grid) {
+    Conway.Grid.step(initialGrid, generations, function (grid) {
       console.log(Conway.Grid.displayable(grid));
     });
   }
