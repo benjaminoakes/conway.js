@@ -77,6 +77,19 @@ Conway.Grid = (function () {
     });
   }
 
+  function randomCell() {
+    return Math.random() > 0.5 ? 1 : 0;
+  }
+
+  Grid.generate = generate;
+  function generate(width, height) {
+    return _.range(0, height).map(function () {
+      return _.range(0, width).map(function () {
+        return randomCell();
+      });
+    });
+  }
+
   return Grid;
 }());
 

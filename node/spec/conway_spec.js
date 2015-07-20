@@ -86,4 +86,13 @@ describe('Conway', function() {
       expect(Conway.Grid.next(grid)).toEqual(next);
     });
   });
+
+  describe('Grid.generate', function () {
+    it('returns a randomly generated grid of the requested size', function () {
+      var grid = Conway.Grid.generate(8, 11);
+
+      expect(grid.length).toEqual(11);
+      expect(_.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
+    });
+  });
 });
