@@ -122,7 +122,15 @@ Conway.CLI = (function () {
   }
 
   function show_usage() {
-    console.log('Usage: conway width height generations');
+    var text = [
+      'Usage: conway width height generations',
+      '',
+      "Runs a simulation of Conway's Game of Life",
+      '',
+      'More information: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'
+    ].join('\n');
+
+    console.log(text);
   }
 
   function run(width, height, generations) {
