@@ -67,6 +67,20 @@ Conway.Grid = (function () {
     return _.flatten(neighborhood).reduce(sum, 0);
   }
 
+  Grid.next = next;
+  function next(grid) {
+    return grid.map(function (row, y) {
+      return row.map(function (cell, x) {
+        var neighborhood, neighborCount;
+        
+        neighborhood = extractNeighborhood(grid, x, y);
+        neighborCount = countNeighbors(neighborhood);
+
+        return Conway.Cell.next(cell, neighborCount);
+      });
+    });
+  }
+
   return Grid;
 }());
 

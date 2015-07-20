@@ -67,4 +67,22 @@ describe('Conway', function() {
       });
     });
   });
+
+  describe('Grid.next', function () {
+    it('returns the next state', function () {
+      var grid, next;
+      
+      grid = [[1, 0, 0, 0],
+              [0, 0, 0, 0],
+              [1, 0, 1, 0],
+              [0, 0, 0, 0]];
+
+      next = [[0, 0, 0, 0],
+              [0, 1, 0, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0]];
+
+      expect(Conway.Grid.next(grid)).toEqual(next);
+    });
+  });
 });
