@@ -5,9 +5,7 @@ module.exports = (function () {
 
   CLI.main = main;
   function main(argv) {
-    var parsed;
-
-    parsed = argv.slice(2, 5).map(function (s) {
+    var parsed = argv.slice(2, 5).map(function (s) {
       return parseInt(s, 10);
     });
 
@@ -19,9 +17,7 @@ module.exports = (function () {
   }
 
   function start(width, height, generationsCount) {
-    var initialGrid;
-
-    initialGrid = Grid.generate(width, height);
+    var initialGrid = Grid.generate(width, height);
 
     Grid.step(initialGrid, generationsCount, function (grid) {
       console.log(Grid.displayable(grid));

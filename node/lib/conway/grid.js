@@ -19,9 +19,7 @@ module.exports = (function () {
 
   Grid.displayable = displayable;
   function displayable(grid) {
-    var rows;
-    
-    rows = grid.map(function (row) {
+    var rows = grid.map(function (row) {
       return row.
         map(function (cell) { return 1 === cell ? "•" : " "; }).
         join("");
