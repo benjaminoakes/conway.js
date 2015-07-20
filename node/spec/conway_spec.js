@@ -61,7 +61,7 @@ describe('Conway', function() {
     describe('given a full neighborhood', function () {
       it('returns 8', function () {
         var neighborhood = [[1, 1, 1],
-                            [1, 1, 1],
+                            [1, 0, 1],
                             [1, 1, 1]];
         expect(Conway.Grid.countNeighbors(neighborhood)).toEqual(8);
       });

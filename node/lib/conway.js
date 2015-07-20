@@ -61,10 +61,9 @@ Conway.Grid = (function () {
     });
   }
 
-  // A neighborhood is a special case of a grid
+  // Assumes neighborhood is the result of extractNeighborhood()
   Grid.countNeighbors = countNeighbors;
-  function countNeighbors(grid) {
-    var neighborhood = extractNeighborhood(grid, 1, 1);
+  function countNeighbors(neighborhood) {
     return _.flatten(neighborhood).reduce(sum, 0);
   }
 
