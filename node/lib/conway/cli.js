@@ -15,12 +15,12 @@ module.exports = (function () {
     console.log(text);
   }
 
-  function run(width, height, generations) {
+  function run(width, height, generationsCount) {
     var initialGrid;
 
     initialGrid = Grid.generate(width, height);
 
-    Grid.step(initialGrid, generations, function (grid) {
+    Grid.step(initialGrid, generationsCount, function (grid) {
       console.log(Grid.displayable(grid));
     });
   }
