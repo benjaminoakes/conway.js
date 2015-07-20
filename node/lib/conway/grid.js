@@ -4,8 +4,30 @@ var U = require("underscore"),
 module.exports = (function () {
   var Grid = {};
 
-  function sum(accumulator, e) {
-    return accumulator + e;
+  function randomCell() {
+    return Math.random() > 0.5 ? 1 : 0;
+  }
+
+  Grid.generate = generate;
+  function generate(width, height) {
+    return U.range(0, height).map(function () {
+      return U.range(0, width).map(function () {
+        return randomCell();
+      });
+    });
+  }
+
+  Grid.displayable = displayable;
+  function displayable(grid) {
+    var rows;
+    
+    rows = grid.map(function (row) {
+      return row.
+        map(function (cell) { return 1 === cell ? "•" : " "; }).
+        join("");
+    });
+
+    return rows.join("\n");
   }
 
   Grid.extractNeighborhood = extractNeighborhood;
@@ -31,6 +53,10 @@ module.exports = (function () {
     });
   }
 
+  function sum(accumulator, e) {
+    return accumulator + e;
+  }
+
   Grid.countNeighbors = countNeighbors;
   function countNeighbors(grid, x, y) {
     var neighborhood = extractNeighborhood(grid, x, y);
@@ -45,32 +71,6 @@ module.exports = (function () {
         return Cell.next(cell, neighborCount);
       });
     });
-  }
-
-  function randomCell() {
-    return Math.random() > 0.5 ? 1 : 0;
-  }
-
-  Grid.generate = generate;
-  function generate(width, height) {
-    return U.range(0, height).map(function () {
-      return U.range(0, width).map(function () {
-        return randomCell();
-      });
-    });
-  }
-
-  Grid.displayable = displayable;
-  function displayable(grid) {
-    var rows;
-    
-    rows = grid.map(function (row) {
-      return row.
-        map(function (cell) { return 1 === cell ? "•" : " "; }).
-        join("");
-    });
-
-    return rows.join("\n");
   }
 
   Grid.step = step;
