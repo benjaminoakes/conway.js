@@ -61,9 +61,9 @@ Conway.Grid = (function () {
     });
   }
 
-  // Assumes neighborhood is the result of extractNeighborhood()
   Grid.countNeighbors = countNeighbors;
-  function countNeighbors(neighborhood) {
+  function countNeighbors(grid, x, y) {
+    var neighborhood = extractNeighborhood(grid, x, y);
     return _.flatten(neighborhood).reduce(sum, 0);
   }
 
@@ -71,11 +71,7 @@ Conway.Grid = (function () {
   function next(grid) {
     return grid.map(function (row, y) {
       return row.map(function (cell, x) {
-        var neighborhood, neighborCount;
-        
-        neighborhood = extractNeighborhood(grid, x, y);
-        neighborCount = countNeighbors(neighborhood);
-
+        var neighborCount = countNeighbors(grid, x, y);
         return Conway.Cell.next(cell, neighborCount);
       });
     });

@@ -50,20 +50,21 @@ describe('Conway', function() {
   describe('Grid.countNeighbors', function () {
     describe('given an empty neighborhood', function () {
       it('returns 0', function () {
-        var neighborhood = [[0, 0, 0],
-                            [0, 0, 0],
-                            [0, 0, 0]];
+        var grid = [[0, 0, 0],
+                    [0, 0, 0],
+                    [0, 0, 0]];
 
-        expect(Conway.Grid.countNeighbors(neighborhood)).toEqual(0);
+        expect(Conway.Grid.countNeighbors(grid, 1, 1)).toEqual(0);
       });
     });
 
     describe('given a full neighborhood', function () {
       it('returns 8', function () {
-        var neighborhood = [[1, 1, 1],
-                            [1, 0, 1],
-                            [1, 1, 1]];
-        expect(Conway.Grid.countNeighbors(neighborhood)).toEqual(8);
+        var grid = [[1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1]];
+
+        expect(Conway.Grid.countNeighbors(grid, 1, 1)).toEqual(8);
       });
     });
   });
