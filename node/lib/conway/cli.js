@@ -12,13 +12,13 @@ module.exports = (function () {
     });
 
     if (3 === parsed.length) {
-      run(parsed[0], parsed[1], parsed[2]);
+      start(parsed[0], parsed[1], parsed[2]);
     } else {
       show_usage();
     }
   }
 
-  function run(width, height, generationsCount) {
+  function start(width, height, generationsCount) {
     var initialGrid;
 
     initialGrid = Grid.generate(width, height);
