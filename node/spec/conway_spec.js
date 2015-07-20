@@ -1,9 +1,9 @@
 describe("Conway", function() {
   var Conway = require('../lib/conway');
 
-  describe('next_cell', function () {
+  describe('Cell.next', function () {
     it("is 1", function() {
-      expect(Conway.next_cell(3)).toEqual(1);
+      expect(Conway.Cell.next(3)).toEqual(1);
     });
   });
 });

@@ -1,13 +1,15 @@
 var Immutable = require('immutable');
 
-var Conway = (function () {
-  function next_cell() {
-    return 1;
-  }
+var Conway = {};
 
-  return {
-    next_cell: next_cell
+Conway.Cell = (function () {
+  var Cell = {};
+
+  Cell.next = function next(neighborCount) {
+    return 1;
   };
+
+  return Cell;
 }());
 
 module.exports = Conway;
