@@ -1,4 +1,5 @@
-var Immutable = require('immutable');
+var Immutable = require('immutable'),
+  _ = require('underscore');
 
 var Conway = {};
 
@@ -31,6 +32,10 @@ Conway.Cell = (function () {
 Conway.Grid = (function () {
   var Grid = {};
 
+  function sum(accumulator, e) {
+    return accumulator + e;
+  }
+
   Grid.extractNeighborhood = extractNeighborhood;
   function extractNeighborhood(grid, x, y) {
     return [-1, 0, +1].map(function (displaceY) {
@@ -52,6 +57,13 @@ Conway.Grid = (function () {
         }
       });
     });
+  }
+
+  // A neighborhood is a special case of a grid
+  Grid.countNeighbors = countNeighbors;
+  function countNeighbors(grid) {
+    var neighborhood = extractNeighborhood(grid, 1, 1);
+    return _.flatten(neighborhood).reduce(sum, 0);
   }
 
   return Grid;

@@ -32,4 +32,25 @@ describe('Conway', function() {
                                                                    [0, 0, 0]]);
     });
   });
+
+  describe('Grid.countNeighbors', function () {
+    describe('given an empty neighborhood', function () {
+      it('returns 0', function () {
+        var neighborhood = [[0, 0, 0],
+                            [0, 0, 0],
+                            [0, 0, 0]];
+
+        expect(Conway.Grid.countNeighbors(neighborhood)).toEqual(0);
+      });
+    });
+
+    describe('given a full neighborhood', function () {
+      it('returns 8', function () {
+        var neighborhood = [[1, 1, 1],
+                            [1, 1, 1],
+                            [1, 1, 1]];
+        expect(Conway.Grid.countNeighbors(neighborhood)).toEqual(8);
+      });
+    });
+  });
 });
