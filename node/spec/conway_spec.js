@@ -3,28 +3,6 @@ var U = require("underscore");
 describe("Conway", function() {
   var Conway = require("../lib/conway");
 
-  describe("Cell.next", function () {
-    describe("given a dead cell", function () {
-      it('follows the "B3/S23" rules', function () {
-        var results = U.range(0, 9).map(function (count) {
-          return Conway.Cell.next(0, count);
-        });
-
-        expect(results).toEqual([0, 0, 0, 1, 0, 0, 0, 0, 0]);
-      });
-    });
-
-    describe("given an alive cell", function () {
-      it('follows the "B3/S23" rules', function () {
-        var results = U.range(0, 9).map(function (count) {
-          return Conway.Cell.next(1, count);
-        });
-
-        expect(results).toEqual([0, 0, 1, 1, 0, 0, 0, 0, 0]);
-      });
-    });
-  });
-
   describe("Grid.extractNeighborhood", function () {
     it("extracts the neighborhood around a set of coordinates, treating edges and the center like dead cells", function () {
       var grid = [[1, 0, 0, 0],
