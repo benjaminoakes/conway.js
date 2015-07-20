@@ -1,5 +1,5 @@
 var Immutable = require('immutable'),
-  _ = require('underscore');
+  U = require('underscore');
 
 var Conway = {};
 
@@ -64,7 +64,7 @@ Conway.Grid = (function () {
   Grid.countNeighbors = countNeighbors;
   function countNeighbors(grid, x, y) {
     var neighborhood = extractNeighborhood(grid, x, y);
-    return _.flatten(neighborhood).reduce(sum, 0);
+    return U.flatten(neighborhood).reduce(sum, 0);
   }
 
   Grid.next = next;
@@ -83,8 +83,8 @@ Conway.Grid = (function () {
 
   Grid.generate = generate;
   function generate(width, height) {
-    return _.range(0, height).map(function () {
-      return _.range(0, width).map(function () {
+    return U.range(0, height).map(function () {
+      return U.range(0, width).map(function () {
         return randomCell();
       });
     });

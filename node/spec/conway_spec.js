@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var U = require('underscore');
 
 describe('Conway', function() {
   var Conway = require('../lib/conway');
@@ -6,7 +6,7 @@ describe('Conway', function() {
   describe('Cell.next', function () {
     describe('given a dead cell', function () {
       it('follows the "B3/S23" rules', function () {
-        var results = _.range(0, 9).map(function (count) {
+        var results = U.range(0, 9).map(function (count) {
           return Conway.Cell.next(0, count);
         });
 
@@ -16,7 +16,7 @@ describe('Conway', function() {
 
     describe('given an alive cell', function () {
       it('follows the "B3/S23" rules', function () {
-        var results = _.range(0, 9).map(function (count) {
+        var results = U.range(0, 9).map(function (count) {
           return Conway.Cell.next(1, count);
         });
 
@@ -92,7 +92,7 @@ describe('Conway', function() {
       var grid = Conway.Grid.generate(8, 11);
 
       expect(grid.length).toEqual(11);
-      expect(_.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
+      expect(U.pluck(grid, 'length')).toEqual([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]);
     });
   });
 });
