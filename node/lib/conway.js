@@ -16,13 +16,14 @@ Conway.Cell = (function () {
   //   * Any dead cell with exactly three live neighbours becomes a live cell,
   //     as if by reproduction.
   //
-  Cell.next = function next(neighborCount) {
+  Cell.next = next;
+  function next(neighborCount) {
     if (neighborCount == 2 || neighborCount == 3) {
       return 1;
     } else {
       return 0;
     }
-  };
+  }
 
   return Cell;
 }());
@@ -30,7 +31,8 @@ Conway.Cell = (function () {
 Conway.Grid = (function () {
   var Grid = {};
 
-  Grid.neighborhood = function neighborhood(grid, x, y) {
+  Grid.neighborhood = neighborhood;
+  function neighborhood(grid, x, y) {
     return [-1, 0, +1].map(function (displaceY) {
       return [-1, 0, +1].map(function (displaceX) {
         var row, cell;
@@ -45,7 +47,7 @@ Conway.Grid = (function () {
         }
       });
     });
-  };
+  }
 
   return Grid;
 }());
