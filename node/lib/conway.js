@@ -17,7 +17,11 @@ Conway.Cell = (function () {
   //     as if by reproduction.
   //
   Cell.next = function next(neighborCount) {
-    return 1;
+    if (neighborCount == 2 || neighborCount == 3) {
+      return 1;
+    } else {
+      return 0;
+    }
   };
 
   return Cell;
