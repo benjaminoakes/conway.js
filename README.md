@@ -1,6 +1,8 @@
 conway.js
 =========
 
+[![Build Status](https://secure.travis-ci.org/benjaminoakes/conway.js.png)](http://travis-ci.org/benjaminoakes/conway.js)
+
 Conway's Game of Life in a functional style.
 
 See also
