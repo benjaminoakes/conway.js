@@ -13,4 +13,4 @@ See also
 --------
 
 * [My earlier object-oriented approach (in CoffeeScript)](https://github.com/benjaminoakes/conway.coffee) ([Demo](http://media.benjaminoakes.com/conway/))
-
+* [My very similar approach in Elixir](https://github.com/benjaminoakes/conway.ex)
